@@ -20,4 +20,12 @@ int32 mmio_lib_Init(void);
  * @return The size of the mapping in bytes on success, or a cFS negative error code.
  */
 int32 mmio_lib_NewMapping(void **mapping, cpuaddr startAddress, cpusize size);
+
+/**
+ * @brief Removes a memory mapped created by mmio_lib_NewMapping.
+ *
+ * @param mapping A pointer to the mapping, should be the same as the one given by mmio_lib_NewMapping.
+ * @param size The size of the memory map, should be the same as the size passed into mmio_lib_NewMapping. This will be rounded up to the nearest page size.
+ * @return CFE_SUCCESS on success, or error code otherwise.
+ */
 int32 mmio_lib_DeleteMapping(void *mapping, cpusize size);
